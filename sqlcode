@@ -1,0 +1,10 @@
+SELECT 
+    a.table_name AS pii_table,
+    a.column_name AS pii_column,
+    b.table_name AS s_pande_table,
+    b.column_name AS s_pande_column
+FROM pii_co.INFORMATION_SCHEMA.COLUMNS a
+JOIN s_pande_co.INFORMATION_SCHEMA.COLUMNS b
+ON a.column_name = b.column_name
+WHERE a.table_schema = 'dbo' 
+AND b.table_schema = 'arc';
